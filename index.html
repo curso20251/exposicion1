@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Exposicion | Bootstrap App Landing Template</title>
+
+  <!-- Mobile Specific Metas
+  ================================================== -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Bootstrap App Landing Template">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="author" content="Themefisher">
+  <meta name="generator" content="Themefisher Small Apps Template v1.0">
+  
+  <!-- theme meta -->
+  <meta name="theme-name" content="small-apps" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
+  
+  <!-- PLUGINS CSS STYLE -->
+  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+
+  <link rel="stylesheet" href="plugins/aos/aos.css">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+
+  <!-- CUSTOM CSS -->
+  <link href="css/style.css" rel="stylesheet">
+
+ <style>
+  .timeline-horizontal::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #ccc;
+  z-index: 0;
+}
+
+.timeline-icon {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  border-radius: 50%;
+  background-color: #f7941e;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
+}
+.timeline-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.timeline-horizontal {
+  min-width: 600px; /* o más, según el contenido total */
+  flex-wrap: nowrap;
+}
+
+.timeline-horizontal > div {
+  min-width: 150px; /* evita que se encojan demasiado los items */
+  flex: 0 0 auto;
+}
+
+</style>
+
+</head>
+
+<body class="body-wrapper" data-spy="scroll" data-target=".privacy-nav">
+
+
+<nav class="navbar main-nav navbar-expand-lg px-2 px-sm-0 py-2 py-lg-0">
+  <div class="container">
+    
+    <a class="navbar-brand" href="index.html">
+  <img src="images/logo.png" alt="logo" class="img-fluid" style="max-height: 120px;">
+</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="ti-menu"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown active">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Home
+            <span><i class="ti-angle-down"></i></span>
+          </a>
+          <!-- Dropdown list -->
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item active" href="index.html">Homepage</a></li>
+            <li><a class="dropdown-item" href="homepage-2.html">Homepage 2</a></li>
+            <li><a class="dropdown-item active3" href="homepage-3.html">Homepage 3</a></li>
+
+            <li class="dropdown dropdown-submenu dropright">
+              <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0301" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdown0301">
+                <li><a class="dropdown-item" href="index.html">Submenu 11</a></li>
+                <li><a class="dropdown-item" href="index.html">Submenu 12</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown @@pages">
+          <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Pages
+            <span><i class="ti-angle-down"></i></span>
+          </a>
+          <!-- Dropdown list -->
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item @@team" href="team.html">Team</a></li>
+            <li><a class="dropdown-item @@career" href="career.html">Career</a></li>
+            <li><a class="dropdown-item @@blog" href="blog.html">Blog</a></li>
+            <li><a class="dropdown-item @@blogSingle" href="blog-single.html">Blog Single</a></li>
+            <li><a class="dropdown-item @@privacy" href="privacy-policy.html">Privacy</a></li>
+            <li><a class="dropdown-item @@faq" href="FAQ.html">FAQ</a></li>
+            <li><a class="dropdown-item" href="sign-in.html">Sign In</a></li>
+            <li><a class="dropdown-item" href="sign-up.html">Sign Up</a></li>
+            <li><a class="dropdown-item" href="404.html">404</a></li>
+            <li><a class="dropdown-item" href="comming-soon.html">Coming Soon</a></li>
+
+            <li class="dropdown dropdown-submenu dropleft">
+              <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
+
+              <ul class="dropdown-menu" aria-labelledby="dropdown0501">
+                <li><a class="dropdown-item" href="index.html">Submenu 21</a></li>
+                <li><a class="dropdown-item" href="index.html">Submenu 22</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item @@about">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+        <li class="nav-item @@contact">
+          <a class="nav-link" href="contact.html">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!--====================================
+=            Hero Section            =
+=====================================-->
+<section class="section gradient-banner">
+	<div class="shapes-container">
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="1500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-up-right" data-aos-duration="1000" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="100"></div>
+		<div class="shape" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="300"></div>
+		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-down-right" data-aos-duration="500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="zoom-out" data-aos-duration="2000" data-aos-delay="500"></div>
+		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="200"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-up" data-aos-duration="500" data-aos-delay="0"></div>
+		<div class="shape" data-aos="fade-down" data-aos-duration="500" data-aos-delay="0"></div>
+		<div class="shape" data-aos="fade-up-right" data-aos-duration="500" data-aos-delay="100"></div>
+		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="0"></div>
+	</div>
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-md-6 order-2 order-md-1 text-center text-md-left">
+				<h1 class="text-white font-weight-bold mb-4">Captación Masiva y habitual de dineros</h1>
+				<p class="text-white mb-5">Quien capte dineros del público, en forma masiva y habitual sin contar con la previa autorización de la autoridad competente, incurrirá en prisión de dos (2) a seis (6) años y multa hasta de cincuenta mil (50.000) salarios mínimos legales mensuales vigentes..</p>
+				<a href="#" class="btn btn-main-md">Download Now</a>
+			</div>
+			<div class="col-md-6 text-center order-1 order-md-2">
+				<img src="images/mobile.jpg" alt="screenshot" style="width: 300px; height: auto;">
+
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Hero Section  ====-->
+<section class="section pt-0 position-relative pull-top">
+  <div class="container">
+    <div class="rounded shadow p-5 bg-white">
+      <div class="row">
+        <!-- Card 1 -->
+        <div class="col-12 col-sm-6 col-lg-3 mt-5 text-center">
+          <i class="ti-wallet text-primary h1"></i>
+          <h3 class="mt-4 text-capitalize h5">Ubicación</h3>
+          <p class="regular text-muted">
+            Código Penal Colombiano, Título X: Delitos contra el orden económico y social<br>
+            Capítulo I: Delitos contra el sistema económico y financiero<br>
+            Artículo 316.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-12 col-sm-6 col-lg-3 mt-5 text-center">
+          <i class="ti-shine text-primary h1"></i>
+          <h3 class="mt-4 text-capitalize h5">Descripción del Delito</h3>
+          <p class="regular text-muted">
+            Recibir dinero del público sin autorización, prometiendo rendimientos atractivos, generalmente más altos que los del sistema financiero formal. Esto se hace sin vigilancia de la Superintendencia Financiera, y atenta contra el orden económico y la confianza pública.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-12 col-sm-6 col-lg-3 mt-5 text-center">
+          <i class="ti-thought text-primary h1"></i>
+          <h3 class="mt-4 text-capitalize h5">Elementos del Delito</h3>
+          <p class="regular text-muted">
+            Sujeto Activo: Cualquier persona natural o jurídica que capte dineros sin autorización.<br>
+            Sujeto Pasivo: El público que entrega el dinero, y el Estado (por violación del orden económico).
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col-12 col-sm-6 col-lg-3 mt-5 text-center">
+          <i class="ti-lock text-primary h1"></i>
+          <h3 class="mt-4 text-capitalize h5">Sanción Penal</h3>
+          <p class="regular text-muted">
+
+			Prisión: De 2 a 6 años  Multas: Hasta de 50.000 salarios mínimos legales mensuales vigentes (SMLMV)
+
+
+     
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--==================================
+=            Feature Grid            =
+===================================-->
+<section class="feature section pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 ml-auto justify-content-center">
+				<!-- Feature Mockup -->
+				<div class="image-content" data-aos="fade-right">
+					<img class="img-fluid" src="images/feature/feature-new-01.jpg" alt="iphone">
+				</div>
+			</div>
+			<div class="col-lg-6 mr-auto align-self-center">
+				<div class="feature-content">
+					<!-- Feature Title -->
+					<h2>Marco Legal <a
+							href="#">¿Qué dice la Constitución?</a></h2>
+					<!-- Feature Description -->
+      <!-- Columna de texto legal -->
+ 
+    
+        
+
+          
+          <p class="mb-2"><strong>📌 Artículo 335 de la Constitución:</strong></p>
+          <ul class="list-unstyled ps-3">
+            <li>▪️ La actividad financiera y cualquier otra que maneje recursos del público es de interés público.
+             Solo se puede ejercer si se tiene autorización del Estado.</li>
+            <li>▪️ La Superintendencia Financiera es la entidad que otorga esta autorización.</li>
+          </ul>
+
+          <p class="mt-3 mb-2"><strong>🔹 ¿Qué otras normas se relacionan?</strong></p>
+          <ul class="list-unstyled ps-3">
+            <li>▪️ <strong>Artículo 150.19.d de la Constitución:</strong> El Congreso regula cómo el Ejecutivo maneja las actividades financieras y bursátiles.</li>
+            <li>▪️ <strong>Artículo 53.2 del EOSF:</strong> Requiere certificado de autorización para captar dineros del público.</li>
+          </ul>
+
+          
+          </ul>
+        </div>
+      </div>
+
+
+				</div>
+				<!-- Testimonial Quote -->
+				<div class="testimonial">
+		<p>
+  <strong>Delimitación de la conducta punible:</strong><br>
+  Antes solo era delito captar dinero sin permiso.<br>
+  Ahora, tras la <strong>Ley 1357 de 2009</strong>, también lo es: <em>"Desarrollar, promover, patrocinar, inducir, financiar, colaborar o realizar cualquier acto para captar dinero del público sin autorización".</em> <br>
+  📚 Referencia: Vega Castillo (2011)
+
+  <br><br>
+  <strong>¿Qué cambió con la ley?</strong><br>
+  Antes se requería que el dinero fuera efectivamente captado (resultado material).<br>
+  Ahora basta con probar la intención o actos dirigidos a captar fondos (conducta tentativa o de impulso).<br>
+  📚 Referencia: Fernández Salinero (2020)
+
+  <br><br>
+  <strong>¿Y qué pasa con quienes solo promueven?</strong><br>
+  También pueden ser responsables penalmente.<br>
+  Quienes asesoran, difunden o impulsan estos esquemas están incitando a la captación ilegal.<br>
+  📚 Referencia: Zúñiga Rodríguez (2015)<br>
+  📚 Muñoz Quintero y Silva Ruiz (2020)
+</p>
+
+
+					<ul class="list-inline meta">
+						<li class="list-inline-item">
+							<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="">
+						</li>
+						<li class="list-inline-item">Jonathon Andrew , Themefisher.com</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="feature section pt-0">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 ml-auto align-self-center">
+				<div class="feature-content">
+					<!-- Feature Title -->
+					<h2>¿Cuándo se considera “masiva y habitual”? <a
+							href="#"></a></h2>
+					<!-- Feature Description -->
+					<p>Según el Decreto 1981 de 1988, Artículo 1, se considera así cuando:
+
+Hay más de 20 personas afectadas o más de 50 operaciones.Se hacen más de 20 contratos en 3 meses para administrar dinero. Se venden títulos financieros con obligaciones de reembolso. Además, se requiere: 
+Que el dinero captado supere el 50% del patrimonio líquido. O que se haya hecho oferta pública o privada a personas desconocidas.  📚 Referencias: Fernández Salinero (2020) define “pasivo para con el público”. Ulloa (2018) define “patrimonio líquido”. Hernández Quintero (2009) critica la norma por permitir evasiones contables.</p>
+				</div>
+				<!-- Testimonial Quote -->
+				<div class="testimonial">
+					<p>
+						"InVision is a window into everything that's being designed at Twitter. It gets all of our best work in one
+						place."
+					</p>
+					<ul class="list-inline meta">
+						<li class="list-inline-item">
+							<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="">
+						</li>
+						<li class="list-inline-item">Jonathon Andrew , Themefisher.com</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-6 mr-auto justify-content-center">
+				<!-- Feature mockup -->
+				<div class="image-content" data-aos="fade-left">
+					<img class="img-fluid" src="images/feature/feature-new-02.jpg" alt="ipad">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Feature Grid  ====-->
+
+<!--==============================
+=            Services            =
+===============================-->
+<section class="service section bg-gray">
+	<div class="container-fluid p-0">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="section-title">
+					<h2>Apreciaciones al delito  de Captacion  ilegal</h2>
+					<p><a href="#"></a> Delito utilizado frecuentemente como fuente del lavado de activos (por ejemplo: pirámides financieras).
+				</div>
+			</div>
+		</div>
+		<div class="row no-gutters">
+			<div class="col-lg-6 align-self-center">
+				<!-- Feature Image -->
+				<div class="service-thumb left" data-aos="fade-right">
+					<img class="img-fluid" src="images/feature/iphone-ipad.jpg" alt="iphone-ipad">
+				</div>
+			</div>
+			<div class="col-lg-5 mr-auto align-self-center">
+				<div class="service-box">
+					<div class="row align-items-center">
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item">
+								<!-- Icon -->
+								<i class="ti-bookmark"></i>
+								<!-- Heading -->
+								<h3>.¿Por qué es un delito grave?
+								<!-- Description -->
+								<p>Porque:
+
+Afecta a cientos o miles de personas que confían sus ahorros.Representa un riesgo sistémico para la economía.Desestabiliza el sistema financiero formal.Se ha utilizado para lavar dinero proveniente de actividades criminales.
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item">
+								<!-- Icon -->
+								<i class="ti-pulse"></i>
+								<!-- Heading -->
+								<h3>
+									¿Qué lo caracteriza?
+								</h3>
+								<!-- Description -->
+								<p>
+									Se promete alta rentabilidad.
+
+Se difunde rápidamente en redes o medios.
+
+El número de “inversionistas” crece exponencialmente (modelo piramidal).
+
+La sostenibilidad depende de que nuevos usuarios entren.
+								</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item">
+								<!-- Icon -->
+								<i class="ti-bar-chart"></i>
+								<!-- Heading -->
+								<h3>¿A quiénes protege la ley?
+
+								</h3>
+								<!-- Description -->
+								<p>
+									A los ahorradores, depositantes e inversionistas que entregan su dinero confiando en promesas falsas.
+
+Al sistema financiero, al orden económico, y al interés público.
+								</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-12">
+							<!-- Service 01 -->
+							<div class="service-item">
+								<!-- Icon -->
+								<i class="ti-panel"></i>
+								<!-- Heading -->
+								<h3>
+									 ¿Qué fallas tiene la justicia penal actualmente?
+								</h3>
+								<!-- Description -->
+								<p>
+									Se sanciona penalmente a los responsables (directivos y representantes), pero:
+
+No se ha garantizado reparación a las víctimas.
+
+No se recuperan los fondos invertidos.
+
+Falta un enfoque restaurativo (que repare el daño y compense al afectado).
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Services  ====-->
+
+
+<!--=================================
+=            Video Promo            =
+==================================-->
+<section class="video-promo section bg-1">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="content-block">
+					<!-- Heading -->
+					<h2>Artículo Noticioso</h2>
+					<!-- Promotional Speech -->
+					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et,
+						porttitor at sem. Vivamus </p>
+					<!-- Popup Video -->
+					<a data-fancybox href="
+          https://www.youtube.com/watch?v=OhgS3ngc0LI
+          ">
+						<i class="ti-control-play video"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Video Promo  ====-->
+
+<!--=================================
+=            Testimonial            =
+==================================-->
+
+<section class="section testimonial" id="testimonial">
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<!-- Testimonial Slider -->
+				<div class="testimonial-slider owl-carousel owl-theme">
+					<!-- Testimonial 01 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							<p>
+								En el caso de DMG, la captación consistía en: Recibir dinero en efectivo de miles de personas, bajo la fachada de vender tarjetas prepago.Prometer la devolución del dinero en 5 o 6 meses con rendimientos que podían llegar hasta el 300% del valor entregado.Ofrecer supuestos beneficios como puntos o publicidad, pero el objetivo real era atraer inversión esperando una ganancia.No se trataba de una compra real de productos o servicios, sino de una expectativa de rentabilidad.
+							</p>
+							
+							<section class="py-5 bg-white">
+  <div class="container">
+<div class="timeline-scroll">
+    <div class="d-flex justify-content-between position-relative timeline-horizontal">
+
+      <!-- 2005 -->
+      <div class="text-center flex-fill px-2">
+        <div class="timeline-icon bg-warning mb-2">
+          <i class="ti-agenda text-white"></i>
+        </div>
+        <p class="mb-1"><strong>2005</strong></p>
+        <p class="small">Constitución de DMG como sociedad anónima</p>
+      </div>
+
+      <!-- 2006 -->
+      <div class="text-center flex-fill px-2">
+        <div class="timeline-icon bg-warning mb-2">
+          <i class="ti-alert text-white"></i>
+        </div>
+        <p class="mb-1"><strong>2006</strong></p>
+        <p class="small">Denuncia del Banco Agrario por posible captación</p>
+      </div>
+
+      <!-- 2007 -->
+      <div class="text-center flex-fill px-2">
+        <div class="timeline-icon bg-warning mb-2">
+          <i class="ti-bar-chart text-white"></i>
+        </div>
+        <p class="mb-1"><strong>2007</strong></p>
+        <p class="small">Captaciones masivas a superan los $160 mil millones</p>
+      </div>
+
+      <!-- 2009 -->
+      <div class="text-center flex-fill px-2">
+        <div class="timeline-icon bg-warning mb-2">
+          <i class="ti-gavel text-white"></i>
+        </div>
+        <p class="mb-1"><strong>2009</strong></p>
+        <p class="small">Sentencia de 1ª instancia: condenado a 30 años</p>
+      </div>
+
+      <!-- 2015 -->
+      <div class="text-center flex-fill px-2">
+        <div class="timeline-icon bg-warning mb-2">
+          <i class="ti-home text-white"></i>
+        </div>
+        <p class="mb-1"><strong>2015</strong></p>
+        <p class="small">Sentencia confirmada por Corte Suprema</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Abraham Linkon , Themefisher.com</cite>
+						</div>
+					</div>
+
+					
+					<!-- Testimonial 01 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+							
+
+							<!-- Mapa de Actores DMG -->
+<section class="py-5 bg-light">
+  <div class="container text-center">
+    <h3 class="mb-5">Mapa de Actores: Caso DMG</h3>
+
+    <div class="actor-map">
+
+      <!-- Nivel 1: Principal -->
+      <div class="actor central">David Murcia Guzmán<br><small>(51%)</small></div>
+
+      <!-- Nivel 2: Socios -->
+      <div class="line-down"></div>
+      <div class="row justify-content-center gap-2 mb-3">
+        <div class="actor">Joanne León<br><small>(34%)</small></div>
+        <div class="actor">María Guzmán<br><small>(5%)</small></div>
+        <div class="actor">Claudia León<br><small>(5%)</small></div>
+        <div class="actor">Nidia Murcia<br><small>(5%)</small></div>
+      </div>
+
+      <!-- Nivel 3: Empresa -->
+      <div class="arrow-down mb-2">↓</div>
+      <div class="actor mb-3">DMG Grupo Holding S.A.</div>
+
+      <!-- Nivel 4: Tarjetas -->
+      <div class="arrow-down mb-2">↓</div>
+      <div class="actor mb-3">Tarjetas Prepago → <strong>Clientes (víctimas)</strong></div>
+
+      <!-- Nivel 5: Resultado -->
+      <div class="arrow-down mb-2">↓</div>
+      <div class="actor bg-danger text-white">Expectativa de retorno → Captación masiva</div>
+
+    </div>
+  </div>
+</section>
+
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Abraham Linkon , Themefisher.com</cite>
+						</div>
+					</div>
+					<!-- Testimonial 01 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+               <div class="mx-auto" style="max-width: 800px;">
+<p class="text-center">
+  <strong>¿Cómo funcionaba el modelo del delito? (Esquema delictivo tipo pirámide)</strong><br><br>
+
+  El modelo era muy parecido a una pirámide financiera, con estas características:
+
+  <br><br>
+  <strong>1. Entrada de dinero</strong><br>
+  Los clientes entregaban dinero y recibían una tarjeta prepago con la promesa de:<br>
+  ▪️ Recibir bienes o servicios (lo cual rara vez ocurría).<br>
+  ▪️ Esperar un tiempo y luego recibir más dinero del que dieron.
+
+  <br><br>
+  <strong>2. Falsa apariencia comercial</strong><br>
+  DMG decía ser una “comercializadora” de productos, pero en realidad:<br>
+  ▪️ No había una relación real con proveedores.<br>
+  ▪️ Las ventas eran mínimas comparadas con el dinero recibido.<br>
+  ▪️ El ingreso principal era la plata que entraba de nuevos “inversionistas”.
+
+  <br><br>
+  <strong>3. Sostenimiento con nuevos fondos</strong><br>
+  Usaban el dinero de nuevos inversionistas para pagar a los anteriores, creando una cadena de dependencia:<br>
+  ▪️ Si no entraban nuevos depósitos, no podían cumplir con los pagos prometidos.<br>
+  ▪️ No existía un modelo productivo real.<br>
+  ▪️ No había reservas o respaldo legal para devolver el dinero.
+
+  <br><br>
+  <strong>4. Gancho emocional y masivo</strong><br>
+  Atraían a las personas con:<br>
+  ▪️ Promesas de riqueza rápida.<br>
+  ▪️ Contratos simbólicos (de “publicidad” o “asociación”).<br>
+  ▪️ La idea de “hazte socio e invierte” o “te pagamos por recomendar”.
+</p>
+</div>
+
+							<!-- Person Thumb -->
+							<div class="image">
+								<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Abraham Linkon , Themefisher.com</cite>
+						</div>
+					</div>
+					<!-- Testimonial 01 -->
+					<div class="item">
+						<div class="block shadow">
+							<!-- Speech -->
+						<p>
+  <strong>Delitos imputados a David Murcia Guzmán</strong><br><br>
+
+  <strong>1. Captación masiva y habitual de dineros del público (sin autorización)</strong><br>
+  ▪️ <strong>Tipo penal:</strong> Artículo 316 del Código Penal Colombiano.<br>
+  ▪️ <strong>Gravedad:</strong> Es un delito contra el orden económico y social.<br>
+  ▪️ <strong>Conducta:</strong> Recibir dinero de miles de personas sin ser una entidad financiera autorizada.
+
+  <br><br>
+  <strong>Agravantes:</strong><br>
+  ▪️ Hubo engaño masivo a más de 12.000 personas.<br>
+  ▪️ Se usaron métodos simulados y reiterados (tarjetas prepago).<br>
+  ▪️ El monto fue millonario (más de 4.8 billones de pesos captados).<br>
+  ▪️ Existió una estructura organizativa compleja para facilitar el delito.
+
+  <br><br>
+  <strong>2. Lavado de activos</strong><br>
+  ▪️ <strong>Tipo penal:</strong> Artículo 323 del Código Penal.<br>
+  ▪️ <strong>Conducta:</strong> Ingresar al sistema económico recursos de origen ilícito (captados ilegalmente), ocultando o disfrazando su origen.<br>
+  ▪️ DMG disfrazaba la captación como “publicidad”, “comercialización” o “prepagos” para legalizar ingresos y pagar utilidades.
+
+  <br><br>
+  <strong>3. Estafa agravada</strong> <em>(implícita en el fallo aunque no siempre como cargo autónomo)</em><br>
+  ▪️ A las víctimas se les ofrecieron rendimientos imposibles.<br>
+  ▪️ Se las convenció de firmar contratos simulados.<br>
+  ▪️ El sistema operaba sobre engaños reiterados y planificados, lo que podría configurar una estafa colectiva.
+</p>
+
+							<div class="image">
+								<img src="images/testimonial/feature-testimonial-thumb.jpg" alt="image">
+							</div>
+							<!-- Name and Company -->
+							<cite>Abraham Linkon , Themefisher.com</cite>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--====  End of Testimonial  ====-->
+
+<section class="call-to-action-app section bg-blue">
+	<div class="container">
+		<div class="row">
+<div class="col-lg-12 text-center my-5">
+  <h2 class="mb-4">
+    Basado en el documento:<br>
+    <strong>“Responsabilidad penal por el delito de captación ilegal de ahorro público: el rol frente a las víctimas de las pirámides financieras”</strong>
+  </h2>
+  <p class="lead">
+    Elaborado por <strong>Juan Camilo Doncel Restrepo</strong>
+  </p>
+</div>
+
+		</div>
+	</div>
+</section>
+
+<!--============================
+=            Footer            =
+=============================-->
+<footer>
+  <div class="footer-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-12 m-md-auto align-self-center">
+          <div class="block">
+           <a href="index.html">
+  <img src="images/logo-alt.png" alt="footer-logo" width="170">
+</a>
+
+            <!-- Social Site Icons -->
+            <ul class="social-icon list-inline">
+              <li class="list-inline-item">
+                <a href="https://www.facebook.com/themefisher"><i class="ti-facebook"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://twitter.com/themefisher"><i class="ti-twitter"></i></a>
+              </li>
+              <li class="list-inline-item">
+                <a href="https://www.instagram.com/themefisher/"><i class="ti-instagram"></i></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+          <div class="block-2">
+            <!-- heading -->
+            <h6>Product</h6>
+            <!-- links -->
+            <ul>
+              <li><a href="team.html">Teams</a></li>
+              <li><a href="blog.html">Blogs</a></li>
+              <li><a href="FAQ.html">FAQs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+          <div class="block-2">
+            <!-- heading -->
+            <h6>Resources</h6>
+            <!-- links -->
+            <ul>
+              <li><a href="sign-up.html">Singup</a></li>
+              <li><a href="sign-in.html">Login</a></li>
+              <li><a href="blog.html">Blog</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+          <div class="block-2">
+            <!-- heading -->
+            <h6>Company</h6>
+            <!-- links -->
+            <ul>
+              <li><a href="career.html">Career</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="team.html">Investor</a></li>
+              <li><a href="privacy.html">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6 mt-5 mt-lg-0">
+          <div class="block-2">
+            <!-- heading -->
+            <h6>Company</h6>
+            <!-- links -->
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="team.html">Team</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center bg-dark py-4">
+    <small class="text-secondary">Copyright &copy; <script>document.write(new Date().getFullYear())</script>. Designed &amp; Developed by <a href="https://themefisher.com/">Themefisher</a></small class="text-secondary">
+  </div>
+</footer>
+
+
+  <!-- To Top -->
+  <div class="scroll-top-to">
+    <i class="ti-angle-up"></i>
+  </div>
+  
+  <!-- JAVASCRIPTS -->
+  <script src="plugins/jquery/jquery.min.js"></script>
+  <script src="plugins/bootstrap/bootstrap.min.js"></script>
+  <script src="plugins/slick/slick.min.js"></script>
+  <script src="plugins/fancybox/jquery.fancybox.min.js"></script>
+  <script src="plugins/syotimer/jquery.syotimer.min.js"></script>
+  <script src="plugins/aos/aos.js"></script>
+  <!-- google map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgeuuDfRlweIs7D6uo4wdIHVvJ0LonQ6g"></script>
+  <script src="plugins/google-map/gmap.js"></script>
+  
+  <script src="js/script.js"></script>
+  <!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+
+</body>
+
+</html>
