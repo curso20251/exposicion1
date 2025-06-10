@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<title>Dashboard Financiero</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+<style>
+        body { padding: 20px; background: #f4f6f9; }
+        .dashboard { display: flex; gap: 30px; flex-wrap: wrap; }
+        .panel { flex: 1 1 45%; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+        canvas { background: #fff; border: 1px solid #ccc; margin-top: 10px; }
+        #filtros { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+<h2 class="mb-4">Dashboard Financiero - ANA MARIA RVERA LOPEZ</h2>
+<div class="dashboard">
+<!-- Panel de Flujo de Montos -->
+<div class="panel">
+<h4>Flujo de Montos por Año</h4>
+<div class="mb-3 row" id="filtros">
+<div class="col-md-5">
+<label class="form-label" for="tipoSelect">Filtrar por tipo:</label>
+<select class="form-select" id="tipoSelect">
+<option value="Todos">Todos</option>
+</select>
+</div>
+<div class="col-md-7">
+<label class="form-label">Filtrar por fuente:</label><br/>
+<div class="form-check form-check-inline" id="checkboxFuentes"></div>
+</div>
+</div>
+<canvas height="100" id="graficoMontos"></canvas>
+<hr/>
+<table class="table table-striped table-bordered w-100" id="tablaMontos"></table>
+</div>
+<!-- Panel de Patrimonio -->
+<div class="panel">
+<h4>Patrimonio - DIAN Renta</h4>
+<table class="table table-bordered table-striped w-100" id="tablaPatrimonio"></table>
+<canvas height="100" id="graficoPatrimonio"></canvas>
+</div>
+</div>
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+        const datosMontos = [{"AÑO": "2014", "CANTIDAD": 13, "MONTO": 80800000, "TIPO": "Entradas", "FUENTE": "UIAF -Te"}, {"AÑO": "2016", "CANTIDAD": 24, "MONTO": 208507300, "TIPO": "Entradas", "FUENTE": "UIAF -Te"}, {"AÑO": "2017", "CANTIDAD": 19, "MONTO": 187804000, "TIPO": "Entradas", "FUENTE": "UIAF -Te"}, {"AÑO": "2018", "CANTIDAD": 25, "MONTO": 369800000, "TIPO": "Entradas", "FUENTE": "UIAF -Te"}, {"AÑO": "2019", "CANTIDAD": 4, "MONTO": 98148628, "TIPO": "Entradas", "FUENTE": "UIAF -Te"}, {"AÑO": "2014", "CANTIDAD": 36, "MONTO": 23021096, "TIPO": "salidas", "FUENTE": "UIAF -Te"}, {"AÑO": "2016", "CANTIDAD": 1, "MONTO": 15000000, "TIPO": "salidas", "FUENTE": "UIAF -Te"}, {"AÑO": "2018", "CANTIDAD": 4, "MONTO": 33187200, "TIPO": "salidas", "FUENTE": "UIAF -Te"}, {"AÑO": "2019", "CANTIDAD": 1, "MONTO": 10000000, "TIPO": "salidas", "FUENTE": "UIAF -Te"}, {"AÑO": "2017", "CANTIDAD": 6820, "MONTO": 182000000, "TIPO": "Entradas", "FUENTE": "UIAF - Notarial"}, {"AÑO": "2017", "CANTIDAD": 7774, "MONTO": 284000000, "TIPO": "salidas", "FUENTE": "UIAF - Notarial"}, {"AÑO": "2018", "CANTIDAD": 2772, "MONTO": 182000000, "TIPO": "salidas", "FUENTE": "UIAF - Notarial"}, {"AÑO": "2018", "CANTIDAD": 2773, "MONTO": 182000000, "TIPO": "Entradas", "FUENTE": "UIAF - Notarial"}, {"AÑO": "2018", "CANTIDAD": 2775, "MONTO": 290000000, "TIPO": "salidas", "FUENTE": "UIAF - Notarial"}, {"AÑO": "2019", "CANTIDAD": 1637, "MONTO": 235480509, "TIPO": "salidas", "FUENTE": "UIAF - Notarial"}, {"AÑO": "2013", "CANTIDAD": "-", "MONTO": 19000000, "TIPO": "ingresos", "FUENTE": "DIAN - Renta"}, {"AÑO": "2015", "CANTIDAD": "-", "MONTO": 50601000, "TIPO": "ingresos", "FUENTE": "DIAN - Renta"}, {"AÑO": "2016", "CANTIDAD": "-", "MONTO": 70547000, "TIPO": "ingresos", "FUENTE": "DIAN - Renta"}, {"AÑO": "2017", "CANTIDAD": "-", "MONTO": 86202000, "TIPO": "ingresos", "FUENTE": "DIAN - Renta"}];
+        const datosPatrimonio = [{"año": "2013", "monto": 193000000, "Descripcxion": "Patrimonio Bruto", "Fuente": "DIAN - Renta"}, {"año": "2015", "monto": 180000000, "Descripcxion": "Patrimonio Bruto", "Fuente": "DIAN - Renta"}, {"año": "2016", "monto": 197541000, "Descripcxion": "Patrimonio Bruto", "Fuente": "DIAN - Renta"}, {"año": "2017", "monto": 216517000, "Descripcxion": "Patrimonio Bruto", "Fuente": "DIAN - Renta"}, {"año": "2013", "monto": 193000000, "Descripcxion": "Patrimonio liquido", "Fuente": "DIAN - Renta"}, {"año": "2015", "monto": 120000000, "Descripcxion": "Patrimonio liquido", "Fuente": "DIAN - Renta"}, {"año": "2016", "monto": 158436000, "Descripcxion": "Patrimonio liquido", "Fuente": "DIAN - Renta"}, {"año": "2017", "monto": 183038000, "Descripcxion": "Patrimonio liquido", "Fuente": "DIAN - Renta"}];
+
+        $(document).ready(function () {
+            const columnasMontos = Object.keys(datosMontos[0]).map(col => { return { title: col, data: col }; });
+            const tablaMontos = $('#tablaMontos').DataTable({
+                data: datosMontos,
+                columns: columnasMontos,
+                scrollX: true,
+                language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json' }
+            });
+
+            const fuentes = [...new Set(datosMontos.map(d => d.FUENTE))];
+            const tipos = [...new Set(datosMontos.map(d => d.TIPO))];
+            tipos.forEach(t => $('#tipoSelect').append(`<option value="${t}">${t}</option>`));
+            fuentes.forEach(f => {
+                $('#checkboxFuentes').append(`
+                    <label class="me-3">
+                        <input type="checkbox" class="form-check-input fuenteCheckbox" value="${f}" checked> ${f}
+                    </label>`);
+            });
+
+            const ctxMontos = document.getElementById('graficoMontos').getContext('2d');
+            let chartMontos = new Chart(ctxMontos, {
+                type: 'line',
+                data: { labels: [], datasets: [{ label: 'Monto total', data: [], backgroundColor: 'rgba(13, 110, 253, 0.2)', borderColor: '#0d6efd', tension: 0.4, fill: true }] },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { ticks: { callback: value => '$' + value.toLocaleString() } }
+                    }
+                }
+            });
+
+            function actualizarGraficoMontos() {
+                const tipoSeleccionado = $('#tipoSelect').val();
+                const fuentesSeleccionadas = $('.fuenteCheckbox:checked').map(function () { return this.value; }).get();
+                const filtrado = datosMontos.filter(d =>
+                    (tipoSeleccionado === "Todos" || d.TIPO === tipoSeleccionado) &&
+                    fuentesSeleccionadas.includes(d.FUENTE)
+                );
+                tablaMontos.clear().rows.add(filtrado).draw();
+
+                const agrupado = filtrado.reduce((acc, d) => {
+                    acc[d.AÑO] = (acc[d.AÑO] || 0) + d.MONTO;
+                    return acc;
+                }, {});
+
+                const años = Object.keys(agrupado).sort();
+                const montos = años.map(a => agrupado[a]);
+
+                chartMontos.data.labels = años;
+                chartMontos.data.datasets[0].data = montos;
+                chartMontos.update();
+            }
+
+            $('#tipoSelect').on('change', actualizarGraficoMontos);
+            $('#checkboxFuentes').on('change', '.fuenteCheckbox', actualizarGraficoMontos);
+            actualizarGraficoMontos();
+
+            // === Patrimonio ===
+            const columnasPatrimonio = Object.keys(datosPatrimonio[0]).map(col => { return { title: col, data: col }; });
+            const tablaPatrimonio = $('#tablaPatrimonio').DataTable({
+                data: datosPatrimonio,
+                columns: columnasPatrimonio,
+                scrollX: true,
+                language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json' }
+            });
+
+            let chartPatrimonio;
+            const ctxPat = document.getElementById('graficoPatrimonio').getContext('2d');
+            function actualizarGraficoPatrimonio(dataFiltrada) {
+                const bruto = dataFiltrada.filter(d => d.Descripcxion === "Patrimonio Bruto");
+                const liquido = dataFiltrada.filter(d => d.Descripcxion === "Patrimonio liquido");
+                const años = [...new Set(dataFiltrada.map(d => d.año))];
+                const datasetBruto = años.map(a => bruto.find(d => d.año === a)?.monto || null);
+                const datasetLiquido = años.map(a => liquido.find(d => d.año === a)?.monto || null);
+
+                if (chartPatrimonio) chartPatrimonio.destroy();
+                chartPatrimonio = new Chart(ctxPat, {
+                    type: 'line',
+                    data: {
+                        labels: años,
+                        datasets: [
+                            { label: 'Patrimonio Bruto', data: datasetBruto, borderColor: '#0d6efd', backgroundColor: 'rgba(13,110,253,0.2)', tension: 0.4, fill: true },
+                            { label: 'Patrimonio Líquido', data: datasetLiquido, borderColor: '#198754', backgroundColor: 'rgba(25,135,84,0.2)', tension: 0.4, fill: true }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                ticks: {
+                                    callback: value => '$' + value.toLocaleString()
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            tablaPatrimonio.on('search.dt', function () {
+                const dataFiltrada = tablaPatrimonio.rows({ search: 'applied' }).data().toArray();
+                actualizarGraficoPatrimonio(dataFiltrada);
+            });
+            actualizarGraficoPatrimonio(datosPatrimonio);
+        });
+
+        // === Concepto ===
+        const datosConcepto = [{"año": 2017, "Monto": 142000000, "Tipo": "No dice", "Fuente": "EFF", "Concepto": "ingresos"}, {"año": 2018, "Monto": 852000000, "Tipo": "No dice", "Fuente": "EFF", "Concepto": "ingresos"}, {"año": 2018, "Monto": 653000000, "Tipo": "Efectivo", "Fuente": "UIAF", "Concepto": "Consinacion "}, {"año": 2018, "Monto": 203355324, "Tipo": "Canje", "Fuente": "UIAF", "Concepto": "Consinacion "}, {"año": 2018, "Monto": 174000000, "Tipo": "Efectivo", "Fuente": "UIAF", "Concepto": "Retiro "}, {"año": 2018, "Monto": 682000000, "Tipo": "Canje", "Fuente": "UIAF", "Concepto": "Retiro "}];
+        const columnasConcepto = Object.keys(datosConcepto[0]).map(col => { return { title: col, data: col }; });
+        let chartConcepto;
+
+        const tablaConcepto = $('#tablaDatosConcepto').DataTable({
+            data: datosConcepto,
+            columns: columnasConcepto,
+            language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json' }
+        });
+
+        const conceptos = [...new Set(datosConcepto.map(d => d.Concepto.trim()))];
+        conceptos.forEach(c => $('#conceptoSelect').append(`<option value="${c}">${c}</option>`));
+
+        const fuentesConcepto = [...new Set(datosConcepto.map(d => d.Fuente))];
+        fuentesConcepto.forEach(f => {
+            $('#checkboxFuentesConcepto').append(`
+                <label class="me-3">
+                    <input type="checkbox" class="form-check-input fuenteCheckboxConcepto" value="${f}" checked> ${f}
+                </label>`);
+        });
+
+        const ctxConcepto = document.getElementById('graficoMontosConcepto').getContext('2d');
+
+        function actualizarConcepto() {
+            const concepto = $('#conceptoSelect').val();
+            const fuentesSeleccionadas = $('.fuenteCheckboxConcepto:checked').map(function () { return this.value; }).get();
+            const filtrado = datosConcepto.filter(d => d.Concepto.trim() === concepto && fuentesSeleccionadas.includes(d.Fuente));
+            tablaConcepto.clear().rows.add(filtrado).draw();
+
+            const gruposPorTipo = { Efectivo: [], Canje: [], "No dice": [] };
+            const años = [...new Set(filtrado.map(d => d.año))].sort();
+
+            años.forEach(a => {
+                const valoresPorTipo = filtrado.filter(d => d.año === a);
+                ["Efectivo", "Canje", "No dice"].forEach(tipo => {
+                    const v = valoresPorTipo.find(d => d.Tipo === tipo);
+                    gruposPorTipo[tipo].push(v ? v.Monto : null);
+                });
+            });
+
+            if (chartConcepto) chartConcepto.destroy();
+            chartConcepto = new Chart(ctxConcepto, {
+                type: 'line',
+                data: {
+                    labels: años,
+                    datasets: [
+                        { label: "Efectivo", data: gruposPorTipo["Efectivo"], borderColor: '#198754', backgroundColor: 'rgba(25,135,84,0.2)', tension: 0.4, fill: false },
+                        { label: "Canje", data: gruposPorTipo["Canje"], borderColor: '#ffc107', backgroundColor: 'rgba(255,193,7,0.2)', tension: 0.4, fill: false },
+                        { label: "No dice", data: gruposPorTipo["No dice"], borderColor: '#6c757d', backgroundColor: 'rgba(108,117,125,0.2)', tension: 0.4, fill: false }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': $' + context.formattedValue;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: value => '$' + value.toLocaleString()
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        $('#conceptoSelect').on('change', actualizarConcepto);
+        $('#checkboxFuentesConcepto').on('change', '.fuenteCheckboxConcepto', actualizarConcepto);
+        $('#conceptoSelect').val(conceptos[0]).trigger('change');
+
+    </script>
+
+<div class="panel mt-5">
+<h4>Comparativo por Año y Concepto</h4>
+<canvas height="100" id="graficoComparativo"></canvas>
+<hr/>
+<table class="table table-striped table-bordered w-100" id="tablaComparativa"></table>
+</div>
+
+<script>
+    const años = [2017, 2018];
+    const datasets = [{"label": "ingresos", "data": [142000000, 852000000], "backgroundColor": "#0d6efd", "borderColor": "#0d6efd", "borderWidth": 1}, {"label": "Consinacion", "data": [null, 856355324], "backgroundColor": "#198754", "borderColor": "#198754", "borderWidth": 1}, {"label": "Retiro", "data": [null, 856000000], "backgroundColor": "#ffc107", "borderColor": "#ffc107", "borderWidth": 1}];
+    const datosOriginales = [{"año": 2017, "Monto": 142000000, "Tipo": "No dice", "Fuente": "EFF", "Concepto": "ingresos"}, {"año": 2018, "Monto": 852000000, "Tipo": "No dice", "Fuente": "EFF", "Concepto": "ingresos"}, {"año": 2018, "Monto": 653000000, "Tipo": "Efectivo", "Fuente": "UIAF", "Concepto": "Consinacion "}, {"año": 2018, "Monto": 203355324, "Tipo": "Canje", "Fuente": "UIAF", "Concepto": "Consinacion "}, {"año": 2018, "Monto": 174000000, "Tipo": "Efectivo", "Fuente": "UIAF", "Concepto": "Retiro "}, {"año": 2018, "Monto": 682000000, "Tipo": "Canje", "Fuente": "UIAF", "Concepto": "Retiro "}];
+    const tooltipTipos = {"ingresos-2017": "No dice", "ingresos-2018": "No dice", "Consinacion-2018": "Canje", "Retiro-2018": "Canje"};
+    const ctx = document.getElementById('graficoComparativo').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: años,
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const tipo = tooltipTipos[`${context.dataset.label}-${context.label}`] || '';
+                            return `${context.dataset.label} (${tipo}): $${context.formattedValue}`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        callback: value => '$' + value.toLocaleString()
+                    }
+                }
+            }
+        }
+    });
+
+    $(document).ready(function () {
+        const columnas = Object.keys(datosOriginales[0]).map(c => { return { title: c, data: c }; });
+        $('#tablaComparativa').DataTable({
+            data: datosOriginales,
+            columns: columnas,
+            scrollX: true,
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json'
+            }
+        });
+    });
+</script>
+</body>
+</html>
