@@ -19,11 +19,53 @@
     </style>
 </head>
 <body>
-<h2 class="mb-4">Dashboard Financiero - ANA MARIA RVERA LOPEZ</h2>
+<h2 class="mb-4">Dashboard Financiero - ANA MARIA RIVERA LOPEZ</h2>
 <div class="dashboard">
 <!-- Panel de Flujo de Montos -->
 <div class="panel">
-<h4>Flujo de Montos por Año</h4>
+<h4>Flujo de Dinero - por Año [ debe filtrar por tipo y por Fuente  ]</h4>
+<div class="accordion" id="acordeonReportes">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingUiafSalidas">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUiafSalidas" aria-expanded="true" aria-controls="collapseUiafSalidas">
+        Reporte UIAF - Operaciones Notariales (Salidas)
+      </button>
+    </h2>
+    <div id="collapseUiafSalidas" class="accordion-collapse collapse show" aria-labelledby="headingUiafSalidas" data-bs-parent="#acordeonReportes">
+      <div class="accordion-body">
+        <p>El reporte de UIAF por operaciones notariales salidas representa salida de dinero que se traduce en compra o adquisición de bienes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingDian">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDian" aria-expanded="false" aria-controls="collapseDian">
+        Reporte DIAN - Declaraciones de Renta
+      </button>
+    </h2>
+    <div id="collapseDian" class="accordion-collapse collapse" aria-labelledby="headingDian" data-bs-parent="#acordeonReportes">
+      <div class="accordion-body">
+        <p>El reporte de DIAN corresponde a ingresos reportados en Declaraciones de Renta.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingUiafEfectivo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUiafEfectivo" aria-expanded="false" aria-controls="collapseUiafEfectivo">
+        Reporte UIAF - Transacciones en Efectivo
+      </button>
+    </h2>
+    <div id="collapseUiafEfectivo" class="accordion-collapse collapse" aria-labelledby="headingUiafEfectivo" data-bs-parent="#acordeonReportes">
+      <div class="accordion-body">
+        <p>El reporte de UIAF corresponde a transacciones en efectivo. Se debe tener presente que dicha información es de carácter informativo.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="mb-3 row" id="filtros">
 <div class="col-md-5">
 <label class="form-label" for="tipoSelect">Filtrar por tipo:</label>
